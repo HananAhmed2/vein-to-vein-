@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+$main-color:#E02544;
+$light-color:#FFFFFF;
+.text-main{
+    color: $main-color;
+}
+.bg-main{
+background-color: $main-color;
+}
+.main-btn{
+    background-color: $main-color;
+    color: $light-color;
+    border-radius: .3125rem;
+    border: unset;
+    cursor: pointer;
+    padding: .25rem .5rem;
+    &:disabled{
+        background-color:#e025449c;
+        color: #ffffff9c;
+        cursor: not-allowed;
+    }
+}
+
+.light-btn{
+    background-color:$light-color ;
+    color: $main-color;
+    border-radius: .3125rem;
+    border: unset;
+    cursor: pointer;
+    padding: .25rem .5rem;
+}
+// .active-link{
+//     color: $light-color !important;
+//     background-color: $main-color!important;
+//     border-radius: .3125rem !important;
+    
+
+// }
+.navbar-col{
+    background-color: $main-color;
+    // color: $light-color !important;
+}
+

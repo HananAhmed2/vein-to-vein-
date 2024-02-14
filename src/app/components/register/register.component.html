@@ -1,0 +1,112 @@
+<section class="mt-5 ms-5 ps-5">
+    <form [formGroup]="registerForm" (ngSubmit)="handleForm()" >
+        <div class="form-item ">
+    <input formControlName="name" type="text" class="form-control mt-2" id="name" name="name" placeholder="Name">
+        </div>
+        <div *ngIf="registerForm.get('name') ?.errors && registerForm.get('name') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1">
+            <p class="mb-0" *ngIf="registerForm.get('name')?.getError('required')">Name Is Required</p>
+            <p class="mb-0" *ngIf="registerForm.get('name')?.getError('minlength')">Name Min Length 3</p>
+            <p class="mb-0" *ngIf="registerForm.get('name')?.getError('maxlength')">Name Max Length 20</p>
+         </div> 
+        
+        <div class="form-item">
+            <input formControlName="idNumber" type="text" class="form-control mt-2" id="id" name="id" placeholder="ID Number">
+                </div> 
+                 <div *ngIf="registerForm.get('idNumber') ?.errors && registerForm.get('idNumber') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1 ">
+                    <p class="mb-0" *ngIf="registerForm.get('idNumber')?.getError('required')">IdNumber Is Required</p>
+                    <p class="mb-0" *ngIf="registerForm.get('idNumber')?.getError('pattern')">IdNumber Must Be 14 Chars</p>
+                 </div>
+                 <div class="d-flex ">
+                    <div class="form-item ">
+                        <input formControlName="age" type="number" class="form-control mt-2 partion-1" id="age" name="age" placeholder="Age">
+                            </div>
+                            <div *ngIf="registerForm.get('age') ?.errors && registerForm.get('age') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1">
+                                <p class="mb-0" *ngIf="registerForm.get('age')?.getError('required')">age Is Required</p>
+                                <p class="mb-0" *ngIf="registerForm.get('age')?.getError('min')">age Min 18</p>
+                                <p class="mb-0" *ngIf="registerForm.get('age')?.getError('max')">age Max 65</p>
+                             </div> 
+                             <div class="form-item ">
+                                <input formControlName="weight" type="number" class="form-control mt-2 partion-2" id="weight" name="weight" placeholder="Weight">
+                                    </div> 
+                                     <div *ngIf="registerForm.get('weight') ?.errors && registerForm.get('weight') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1 ">
+                                         <p class="mb-0" *ngIf="registerForm.get('weight')?.getError('required')">weight Is Required</p>
+                                         <p class="mb-0" *ngIf="registerForm.get('weight')?.getError('pattern')">weight Must Be At Least 50kg</p>
+                                     </div>
+                 </div>
+                  <div class="form-item">
+                    <select formControlName="gender"  name="gender" id="gender" class=" mt-2 text-main ps-2 form-select">
+                        <option  selected disabled value="" >Gender</option>
+                        <option  value="male" >male</option>
+                        <option  value="female" >female</option>
+                        <option  value="other" >other</option>
+                    </select> 
+                 </div>
+                        <div *ngIf="registerForm.get(' gender ') ?.errors && registerForm.get('gender') ?.touched" class="text-main ms-5 ps-3 w-25  py-1  ">
+                            <p class="mb-0" *ngIf="registerForm.get('gender')?.getError('required')">gender Is Required</p>
+                         </div>   
+                   <div class="form-item">
+                    <select formControlName="bloodType"  name="bloodType" id="bloodType" class=" mt-2 text-main ps-2  form-select">
+                        <option  selected disabled value="" >Blood Type</option>
+                        <option  value="A+">A+</option>
+                        <option  value="A-">A-</option>
+                        <option  value="B+">B+</option>
+                        <option  value="B-" >B-</option>
+                        <option  value="AB+" >AB+  </option>
+                        <option  value="AB-" >AB-</option>
+                        <option  value="O+" >O+</option>
+                        <option  value="O-" >O-</option>
+                    </select> 
+                        </div> 
+                        <div *ngIf="registerForm.get('bloodType') ?.errors && registerForm.get('bloodType') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1">
+                            <p class="mb-0" *ngIf="registerForm.get('bloodType')?.getError('required')">Blood Type Is Required</p> 
+                         </div> 
+                                  <div class="form-item ">
+                                    <label for="date" class="text-main mt-1 "> Last Donation Date :</label>
+                                    <input formControlName="lastDonationDate" type="date"  class="form-control mt-2 text-main" id="date" name="lastDonationDate" >
+                                        </div>
+                                        <div *ngIf="registerForm.get(' lastDonationDate ') ?.errors && registerForm.get('lastDonationDate') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1  ">
+                                            <p class="mb-0" *ngIf="registerForm.get('lastDonationDate')?.getError('required')">lastDonationDate Is Required</p>
+                                            <p class="mb-0" *ngIf="registerForm.get('lastDonationDate')?.getError('pattern')">lastDonationDate Invalid Format </p>
+                                         </div>      
+                                       
+                                  <div class="form-item">
+                                    <input formControlName="phone" type="tel"  class="form-control mt-2" id="phone" name="phone" placeholder="Phone">
+                                        </div>
+        <div *ngIf="registerForm.get('phone') ?.errors && registerForm.get('phone') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1">
+            <p class="mb-0" *ngIf="registerForm.get('phone')?.getError('required')">phone Is Required</p>
+            <p class="mb-0" *ngIf="registerForm.get('phone')?.getError('pattern')">Accept Only Egypt Phone Number</p> 
+         </div> 
+         <div class="d-flex">
+            <div class="form-item">
+                <input formControlName="email" type="email" class="form-control mt-2" id="email" name="email" placeholder="Email">
+                    </div>
+                    <div *ngIf="registerForm.get('email') ?.errors && registerForm.get('email') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1  ">
+                        <p class="mb-0" *ngIf="registerForm.get('email')?.getError('required')">Email Is Required</p>
+                        <p class="mb-0" *ngIf="registerForm.get('email')?.getError('email')">Email Invalid Format </p>
+                     </div> 
+                     <div class="ms-5 ps-5">
+                        <button [disabled]="registerForm.invalid" type="submit" class="main-btn mt-2">Register </button>
+
+                     </div>
+         </div>
+         <div class="d-flex">
+            <div class="form-item   ">
+                <input formControlName="password" type="password" class="form-control mt-2" id="password" name="password" placeholder="Password">
+                    </div>
+                    <div *ngIf="registerForm.get('password') ?.errors && registerForm.get('password') ?.touched" class="text-danger ms-5 ps-3 w-25  py-1  ">
+                        <p class="mb-0" *ngIf="registerForm.get('password')?.getError('required')">Password Is Required</p>
+                        <p class="mb-0" *ngIf="registerForm.get('password')?.getError('pattern')">Password Must Be At Least 6 Chars contain only(letter,number,_)</p>
+                     </div> 
+                     <div class="ms-5 ps-5">
+                            <!-- <button class="light-btn mt-2">Already Have An Acount</button> -->
+
+                     </div>
+         </div>
+
+    </form>
+    <!-- <p *ngIf="errMsg" class=" alert main-btn p-1 w-50 mx-auto mb-0 text-center mt-4">{{errMsg}}</p> -->
+</section>
+
+
+   
+ 
